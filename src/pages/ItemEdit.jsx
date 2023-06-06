@@ -23,7 +23,6 @@ const ItemEdit = () => {
       }
     } catch (error) {
       toast.error("Error :" + error.message);
-      console.log(error);
     } finally {
       setIsLoading(false);
     }
