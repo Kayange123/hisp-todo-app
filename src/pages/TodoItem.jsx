@@ -26,7 +26,7 @@ const TodoItem = () => {
       setIsLoading(false);
     }
   };
-  const handleDelete = async (id) => {
+  const handleDelete = async () => {
     try {
       setIsLoading(true);
       const res = await api.deleteTodo(id);
