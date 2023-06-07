@@ -55,7 +55,7 @@ const TodoItem = () => {
               Title:
             </p>
             <textarea
-              className="w-full max-h-28 resize-none px-2 rounded-lg"
+              className="w-full text-xl text-gray-500 max-h-20 resize-none px-2 rounded-lg"
               value={todo?.title}
               cols={30}
               rows={10}
@@ -66,7 +66,7 @@ const TodoItem = () => {
             <div className="flex flex-col text-left md:flex-row gap-6 justify-between p-4">
               <p className="font-bold text-2xl font-mono text">Description:</p>
               <textarea
-                className="w-full resize-none max-h-[200px] min-h-max  px-2 rounded-lg"
+                className="w-full text-xl text-gray-500 resize-none max-h-[80px] min-h-max  px-2 rounded-lg"
                 value={todo?.description}
                 readOnly
                 cols={20}
@@ -74,7 +74,7 @@ const TodoItem = () => {
               />
             </div>
           )}
-          <div className="flex flex-col md:flex-row gap-6 justify-between p-4">
+          <div className="flex flex-col md:flex-row gap-6 justify-between py-2 px-4">
             <p className="font-bold text-left text-2xl font-mono text">
               Status :
             </p>
