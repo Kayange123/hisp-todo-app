@@ -26,5 +26,7 @@ Run either `yarn run dev` or `npm run dev` to start a server to your localhost a
 `Incomplete` todos are `editable` and `deletable`
 ![Screenshot (96)](https://github.com/Kayange123/hisp-todo-app/assets/96143653/16de1ef1-128e-43ed-8e7f-8d8f5ac48eb7)
 ## Example of editable incomplete todo
-![Screenshot (97)](https://github.com/Kayange123/hisp-todo-app/assets/96143653/e599d867-640b-4e33-bf3c-3c4c56dae950)
+
+![Screenshot (98)](https://github.com/Kayange123/hisp-todo-app/assets/96143653/5fc92de1-0616-4bb9-95dd-308304c017d8)
+
 
