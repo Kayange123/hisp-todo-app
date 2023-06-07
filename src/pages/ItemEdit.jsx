@@ -5,20 +5,23 @@ import * as api from "../apis";
 
 const ItemEdit = () => {
   const initialForm = { title: "", description: "", completed: false };
-  const id = useParams().id;
+  const id = useParams()?.id;
   const navigate = useNavigate();
   const [todo, setTodo] = useState(JSON.parse(localStorage.getItem("todo")));
   const [form, setForm] = useState({ ...todo });
   const [isLoading, setIsLoading] = useState(false);
 
+  const formData = { ...form, lastUpdated: new Date().toISOString() };
   const handleUpdate = async (e) => {
     e.preventDefault();
     if (!id) return;
     try {
       setIsLoading(true);
-      const res = await api.updateTodos(id, form);
+      const res = await api.updateTodos(id, formData);
       if (res?.status === 200) {
         toast.success("Updated successfully");
+        localStorage.clear();
+        localStorage.setItem("todo", JSON.stringify(formData));
         navigate(`/${id}`);
       }
     } catch (error) {

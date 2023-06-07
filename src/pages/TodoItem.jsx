@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { useLocation, useParams, useNavigate } from "react-router-dom";
 import { MdDeleteForever } from "react-icons/md";
 import { VscVerifiedFilled } from "react-icons/vsc";
@@ -10,7 +10,7 @@ const TodoItem = () => {
   const localTodo = JSON.parse(localStorage.getItem("todo"));
   const [todo, setTodo] = useState(localTodo ?? []);
   const [isLoading, setIsLoading] = useState(false);
-  const { id } = useParams();
+  const id = useParams()?.id;
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -19,14 +19,13 @@ const TodoItem = () => {
       setIsLoading(true);
       const data = await api.getTodo(id);
       setTodo(data?.data);
-      toast.success(`A todo with id : ${id} is here for you`);
     } catch (error) {
       toast.error("Error" + error.message);
     } finally {
       setIsLoading(false);
     }
   };
-  const handleDelete = async () => {
+  const handleDelete = useCallback(async () => {
     try {
       setIsLoading(true);
       const res = await api.deleteTodo(id);
@@ -40,7 +39,7 @@ const TodoItem = () => {
     } finally {
       setIsLoading(false);
     }
-  };
+  }, [isLoading]);
   useEffect(() => {
     fetchTodo();
   }, [id, location]);
@@ -58,8 +57,8 @@ const TodoItem = () => {
             <textarea
               className="w-full max-h-28 resize-none px-2 rounded-lg"
               value={todo?.title}
-              cols="30"
-              rows="10"
+              cols={30}
+              rows={10}
               readOnly
             />
           </div>
@@ -70,8 +69,8 @@ const TodoItem = () => {
                 className="w-full resize-none max-h-[200px] min-h-max  px-2 rounded-lg"
                 value={todo?.description}
                 readOnly
-                cols="30"
-                rows="10"
+                cols={20}
+                rows={10}
               />
             </div>
           )}

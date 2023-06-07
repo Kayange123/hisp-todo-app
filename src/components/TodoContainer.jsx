@@ -2,13 +2,10 @@ import React from "react";
 import { VscVerifiedFilled } from "react-icons/vsc";
 import { GrInProgress } from "react-icons/gr";
 
-const TodoContainer = ({ todo, setIsAdd }) => {
+const TodoContainer = ({ todo }) => {
   if (!todo) return <div className="text-center">No todo</div>;
   return (
     <div
-      onClick={() => {
-        setIsAdd();
-      }}
       className={`flex overflow-hidden p-3 h-[60px] items-center md:h-[70px] cursor-pointer rounded-xl md:rounded-2xl border-2
         ${todo?.completed ? "opacity-90" : "opacity-100"}
       `}

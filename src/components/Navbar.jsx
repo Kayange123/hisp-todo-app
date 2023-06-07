@@ -15,12 +15,12 @@ const Navbar = ({ setIsOpen, isOpen }) => {
         </div>
         <div className="">
           <button
-            className="flex gap-2 items-center bg-wite border p-2 rounded-lg hover:bg-blue-800 transition-all ease-in-out"
+            className="flex gap-2 hover:bg-neutral-50 items-center bg-wite border p-2 rounded-lg transition-all ease-in-out"
             onClick={() => setIsOpen(!isOpen)}
             type="button"
           >
-            <IoIosAdd className="text-gray-400 font-extralight" size={30} />
-            <span className="font-sans text-lg hover:text-white text-gray-950 font-bold">
+            <IoIosAdd className="text-gray-400 font-extralight " size={30} />
+            <span className="font-sans text-lg text-gray-950 font-bold">
               Add a Todo
             </span>
           </button>

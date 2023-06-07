@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import TodoContainer from "./TodoContainer";
 import { useNavigate } from "react-router-dom";
 
-const TodosContainer = ({ setIsAdd, todos, isLoading }) => {
+const TodosContainer = ({ todos, isLoading }) => {
   const navigate = useNavigate();
 
   return (
@@ -27,7 +27,7 @@ const TodosContainer = ({ setIsAdd, todos, isLoading }) => {
                   className="w-full h-full my-2 mx-auto text-ellipsis"
                 >
                   {todo?.value && (
-                    <TodoContainer setIsAdd={setIsAdd} todo={todo?.value} />
+                    <TodoContainer todo={todo?.value} />
                   )}
                 </div>
               ))}

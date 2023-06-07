@@ -12,8 +12,6 @@ import ItemEdit from "./ItemEdit";
 const Home = () => {
   const location = useLocation();
   const [isOpen, setIsOpen] = useState(false);
-  const [isAdd, setIsAdd] = useState(true);
-  const [isEdit, setIsEdit] = useState(false);
   const [todos, setTodos] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -32,7 +30,7 @@ const Home = () => {
 
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [location]);
   return (
     <div className="h-screen w-full bg-white relative flex flex-1">
       <div className="h-full flex flex-col w-full">
@@ -42,13 +40,7 @@ const Home = () => {
           <Routes>
             <Route
               path="/"
-              element={
-                <TodosContainer
-                  todos={todos}
-                  isLoading={isLoading}
-                  setIsAdd={setIsAdd}
-                />
-              }
+              element={<TodosContainer todos={todos} isLoading={isLoading} />}
             />
             <Route path="/:id" element={<TodoItem />} />
             <Route path="/:id/edit" element={<ItemEdit />} />
